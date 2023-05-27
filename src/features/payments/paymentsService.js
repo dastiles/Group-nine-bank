@@ -1,8 +1,8 @@
 'use client'
 import saveUser from '@/utils/localStorage'
 import axios from 'axios'
-const url = 'http://127.0.0.1:5000/api/payments'
-import { redirect } from 'next/navigation'
+const url = 'https://banking-api-production.up.railway.app/api/payments'
+
 
 const makePayment = async (payment, token) => {
     const config = {
