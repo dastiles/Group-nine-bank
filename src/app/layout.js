@@ -1,7 +1,11 @@
+'use client';
+import NavBar from '@/components/navBar'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { Provider } from 'react-redux'
+import { store } from '../store/store'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +15,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <Provider store={store}>
+          <NavBar />
+          {children}
+          <ToastContainer limit={1} />
+        </Provider>
+      </body>
     </html>
   )
 }
